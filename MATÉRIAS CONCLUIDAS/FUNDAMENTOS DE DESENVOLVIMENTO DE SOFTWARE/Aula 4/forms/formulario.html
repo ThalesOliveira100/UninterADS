@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NORO NORO SUSHI</title>
+</head>
+<body>
+    <h1>NORO NORO SUSHI</h1>
+    <form method="POST" action="teste.jsp">
+        <h2>Contato e Entrega</h3>
+        <div id="dadosUsuario">
+            Nome: <input type="text" name="nome"> <br>
+            Número de contato: <input type="text" name="telefone" maxlength="11" placeholder="31900000000"> <br>
+            Email: <input type="email" name="email">
+
+            <br> <p>Endereço</p>
+            Cidade: <input type="text" name="cidade"> Bairro: <input type="text" name="bairro"> <br>
+
+            Logradouro: <input type="text" name="logradouro"> Número <input type="text" name="numero"> <br>
+
+        </div>
+
+        <div id="escolha">
+            <br>
+            Quant.: <input type="radio" name="quantidade" value="G" checked> 28
+            <input type="radio" name="quantidade" value="M"> 22
+            <input type="radio" name="quantidade" value="P"> 18
+            <br>
+            <br>
+            Sushi principal: <select name="sabor">
+                <option value="Shakemaki">Shakemaki</option>
+                <option value="Kappamaki">Kappamaki</option>
+                <option value="Tekkamaki">Tekkamaki</option>
+                <option value="Futomaki">Futomaki</option>
+                <option value="Temaki">Temaki</option>
+                <option value="Hossomaki">Hossomaki</option>
+                <option value="Uramaki">Uramaki</option>
+            </select>
+            <br>
+        </div>
+
+        <div id="acrescimos">
+            <br>
+            Acrescimos:
+            <input type="checkbox" name="Sashimi">+ 2 Shashimis
+            <input type="checkbox" name="Hashi">+ 2 Hashis
+            <br>
+        </div>
+
+        <div id="data">
+            <br>
+            Data da Entrega: <input type="date" name="dataEntrega">
+            Horário de Entrega: <input type="time" name="horaEntrega">
+            <br>
+        </div>
+
+        <br>
+        Comentário: <textarea name="msg" cols="30" rows="10"></textarea>
+        <br><br>
+        <input type="submit" name="enviar">
+
+    </form>
+</body>
+</html>

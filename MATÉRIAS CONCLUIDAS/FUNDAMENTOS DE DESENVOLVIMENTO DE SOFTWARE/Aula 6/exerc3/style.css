@@ -1,0 +1,18 @@
+.alternada {
+    list-style: upper-alpha;
+    font-size: 30px;
+    color: indigo;
+    width: fit-content; /* Deixa no tamanho do conteudo */
+}
+
+.alternada li:nth-child(odd) { /* oll impar em ingles */
+    background-color: khaki;
+}
+
+.alternada li:nth-child(even) { /* even par em ingles */
+    background-color:deepskyblue;
+}
+
+.alternada li:first {
+    font-weight: bolder;
+}

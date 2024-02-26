@@ -1,0 +1,33 @@
+.sqr {
+    border: 3px solid black;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    margin: 10px;
+    position: absolute;
+    font-family: Arial, Helvetica, sans-serif ;
+}
+
+.caixa1 {
+   background-color: coral; 
+   top: 0px;
+}
+
+.caixa2 {
+    background-color: aquamarine;
+    /* left: 125px; */
+    right: 0px;
+    top: 0px;
+}
+
+.caixa3 {
+    background-color: violet;
+    bottom: 0px;
+}
+
+.caixa4 {
+    background-color: goldenrod;
+    bottom: 0px;
+    /* left: 125px; */
+    right: 0px;
+}
