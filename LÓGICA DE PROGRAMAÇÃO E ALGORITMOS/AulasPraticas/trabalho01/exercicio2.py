@@ -1,0 +1,50 @@
+print('Bem-Vindo a Loja de Gelados do Thales Gabriel Moreira de Oliveira 4675362')
+print('-------------------------------- Cardápio --------------------------------')
+print('------------------| Tamanho | Cupuaçu (CP) | Açaí (AC) | -----------------')
+print('------------------|    P    |   R$ 10,00   | R$ 12,00  | -----------------')
+print('------------------|    M    |   R$ 15,00   | R$ 17,00  | -----------------')
+print('------------------|    G    |   R$ 17,00   | R$ 21,00  | -----------------')
+print('--------------------------------------------------------------------------')
+
+sabor = ''
+tamanho = ''
+valor_total = 0
+
+while True:
+    sabor = str(input('Entre com o sabor desejado (CP/AC): '))
+
+    if sabor == 'CP':
+        tamanho = input('\nEntre com o tamanho desejado (P/M/G): ')
+
+        if tamanho == 'P':
+            valor_total += 10
+        elif tamanho == 'M':
+            valor_total += 15
+        elif tamanho == 'G':
+            valor_total += 17
+        else:
+            print('Tamanho Inválido. Tente novamente!')
+            continue
+    elif sabor == 'AC':
+        tamanho = input('\nEntre com o tamanho desejado (P/M/G): ')
+
+        if tamanho == 'P':
+            valor_total += 12
+        elif tamanho == 'M':
+            valor_total += 17
+        elif tamanho == 'G':
+            valor_total += 21
+        else:
+            print('Tamanho Inválido. Tente novamente!')
+            continue
+    else:
+        print('Sabor Inválido. Tente novamente!')
+        continue
+
+    mais_pedidos = input('Deseja mais alguma coisa? (S/ digite outra tecla)')
+    if mais_pedidos == 'S':
+        continue
+    else:
+        break
+
+print('\nO valor total a ser pago: R$ {:.2f}'.format(valor_total))
