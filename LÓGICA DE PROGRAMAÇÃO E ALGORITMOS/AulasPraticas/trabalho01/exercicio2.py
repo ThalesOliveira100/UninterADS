@@ -6,6 +6,7 @@ print('------------------|    M    |   R$ 15,00   | R$ 17,00  | ----------------
 print('------------------|    G    |   R$ 17,00   | R$ 21,00  | -----------------')
 print('--------------------------------------------------------------------------')
 
+# Variáveis importantes ao longo do programa que são inicializadas antes pois para não ter problemas no escopo.
 sabor = ''
 tamanho = ''
 valor_total = 0
@@ -47,4 +48,5 @@ while True:
     else:
         break
 
+# A notação ":.2f" serve para limitar as casas decimais exibidas ao usuário.
 print('\nO valor total a ser pago: R$ {:.2f}'.format(valor_total))
