@@ -5,11 +5,11 @@ def escolha_servico():
                         "\nDIG - Digitalização"
                         "\nICO - Impressão Colorida"
                         "\nIPB - Impressão Preto e Branco"
-                        "\nFOT - Fotocópia\n").lower()
+                        "\nFOT - Fotocópia\n>> ").lower()
         if servico in ("dig", "ico", "ibo", "fot"):
             return servico_valor[servico]
         else:
-            print("Escolha inválida. \nEntre com o tipo de serviço desejado novamente.\n")
+            print("Escolha inválida. \nEntre com o tipo de serviço desejado novamente.>> ")
 
 
 def num_pagina():
@@ -72,4 +72,4 @@ extra = servico_extra()
 total = servico * num_paginas + servico_extra_valor[extra]
 
 # Exibição do total a pagar
-print(f"Total (R$): {total:.2f} (servico: {servico} * paginas: {num_paginas} + extra(s): {servico_extra_valor[extra]})")
+print(f"Total (R$): {total:.2f} (servico: {str(servico).replace('.',',')} * paginas: {num_paginas:.2f} + extra(s): {servico_extra_valor[extra]})")
