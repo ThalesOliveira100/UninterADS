@@ -2,6 +2,7 @@
 # idade > 3: gratuito
 # idade entre 3 e 12 anos: R$ 15
 # idade maior que 12 anos: R$ 30
+# teste
 
 total_visitantes = 0
 total_dinheiro_arrecadado = 0
