@@ -31,9 +31,6 @@ while True:
         elif operacao == '/':
             total = valor1 / valor2
 
-        elif operacao == 's':
-            break
-
         print(f'O resultado entre {valor1} {operacao} {valor2} é {total} !\n')
 
     except ValueError:
