@@ -12,10 +12,10 @@ tamanho = ''
 valor_total = 0
 
 while True:
-    sabor = str(input('Entre com o sabor desejado (CP/AC): '))
+    sabor = str(input('\nEntre com o sabor desejado (CP/AC): '))
 
-    if sabor == 'CP':
-        tamanho = input('\nEntre com o tamanho desejado (P/M/G): ')
+    if sabor.upper() == 'CP':
+        tamanho = input('Entre com o tamanho desejado (P/M/G): ').upper()
 
         if tamanho == 'P':
             valor_total += 10
@@ -24,10 +24,10 @@ while True:
         elif tamanho == 'G':
             valor_total += 17
         else:
-            print('Tamanho Inválido. Tente novamente!')
+            print('Tamanho Inválido. Tente novamente!\n')
             continue
-    elif sabor == 'AC':
-        tamanho = input('\nEntre com o tamanho desejado (P/M/G): ')
+    elif sabor.upper() == 'AC':
+        tamanho = input('Entre com o tamanho desejado (P/M/G): ').upper()
 
         if tamanho == 'P':
             valor_total += 12
@@ -36,13 +36,13 @@ while True:
         elif tamanho == 'G':
             valor_total += 21
         else:
-            print('Tamanho Inválido. Tente novamente!')
+            print('Tamanho Inválido. Tente novamente!\n')
             continue
     else:
         print('Sabor Inválido. Tente novamente!')
         continue
 
-    mais_pedidos = input('Deseja mais alguma coisa? (S/ digite outra tecla)')
+    mais_pedidos = input('Deseja mais alguma coisa? (S/ digite outra tecla) ').upper()
     if mais_pedidos == 'S':
         continue
     else:
