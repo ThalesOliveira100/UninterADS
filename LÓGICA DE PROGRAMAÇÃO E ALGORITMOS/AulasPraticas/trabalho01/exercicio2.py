@@ -14,6 +14,7 @@ valor_total = 0
 while True:
     sabor = str(input('\nEntre com o sabor desejado (CP/AC): '))
 
+    # Se o sabor selecionda for CP, executará este bloco, onde verificará o tamanho, e em seguida calculará o preço.
     if sabor.upper() == 'CP':
         tamanho = input('Entre com o tamanho desejado (P/M/G): ').upper()
 
@@ -24,8 +25,10 @@ while True:
         elif tamanho == 'G':
             valor_total += 17
         else:
-            print('Tamanho Inválido. Tente novamente!\n')
+            print('Tamanho Inválido. Tente novamente!')
             continue
+
+    # Se o sabor selecionda for AC, executará este bloco, onde verificará o tamanho, e em seguida calculará o preço.
     elif sabor.upper() == 'AC':
         tamanho = input('Entre com o tamanho desejado (P/M/G): ').upper()
 
@@ -36,12 +39,13 @@ while True:
         elif tamanho == 'G':
             valor_total += 21
         else:
-            print('Tamanho Inválido. Tente novamente!\n')
+            print('Tamanho Inválido. Tente novamente!')
             continue
     else:
         print('Sabor Inválido. Tente novamente!')
         continue
 
+    # Pergunta se o usuário deseja comprar algo a mais, se sim o laço se repete, se não o laço é encerrado.
     mais_pedidos = input('Deseja mais alguma coisa? (S/ digite outra tecla) ').upper()
     if mais_pedidos == 'S':
         continue

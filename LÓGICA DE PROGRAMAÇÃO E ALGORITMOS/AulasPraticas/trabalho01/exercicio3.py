@@ -9,7 +9,7 @@ def escolha_servico():
         if servico in ("dig", "ico", "ibo", "fot"):
             return servico_valor[servico]
         else:
-            print("Escolha inválida. \nEntre com o tipo de serviço desejado novamente.>> ")
+            print("Escolha inválida! Entre com o tipo de serviço desejado novamente.")
 
 
 def num_pagina():
@@ -34,10 +34,10 @@ def num_pagina():
 def servico_extra():
     # Pergunta pelo serviço adicional e retorna a opção escolhida.
     while True:
-        extra = input("Deseja adicionar mais algum serviço? "
+        extra = input("Deseja adicionar mais algum serviço?"
                       "\n1 - Encadernação Simples - R$ 10,00"
                       "\n2 - Encadernação Capa Dura - R$ 25,00"
-                      "\n0 - Não desejo mais nada\n")
+                      "\n0 - Não desejo mais nada\n>> ")
 
         if extra in ("1", "2", "0"):
             return extra
