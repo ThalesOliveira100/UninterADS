@@ -25,7 +25,7 @@ def cadastrar_livro(id):
 
 def consultar_livro():
     # Primeiramente valida se a lista_livros está nula, se estiver ele avisará que o usuário ainda não cadastrou nenhum
-    # livro no sistema.
+    # livro no sistema, e o impede de acessar o menu.
     if len(lista_livro):
         print('-' * 23, 'MENU CONSULTAR LIVRO', '-' * 24)
         opcao_consulta = int(input('Escolha a opção desejada: '
@@ -35,6 +35,7 @@ def consultar_livro():
                                    '\n4 - Voltar ao menu\n>> '))
 
         while True:
+            # Primeira opção da consulta de livros, realiza um loop na lista_livro e retorna todos os livros encontrados
             if opcao_consulta == 1:
                 for livro in lista_livro:
                     print(f"** ID: {livro['id']}")
@@ -43,21 +44,30 @@ def consultar_livro():
                     print(f"Editora: {livro['editora']}")
                     print("-------------------------")
 
+            # Segunda opção da consulta de livros, localiza o livro pelo ID
             elif opcao_consulta == 2:
                 id_livro = int(input("Digite o ID do livro: "))
+                livro_encontrado = False
 
-                if len(lista_livro) >= id_livro:
-                    livro = lista_livro[id_livro - 1]
-                    if livro:
-                        print(f"** ID: {livro['id']}")
-                        print(f"Nome: {livro['nome']}")
-                        print(f"Autor: {livro['autor']}")
-                        print(f"Editora: {livro['editora']}")
-                    else:
+                # Valida se o ID informado é maior que o Id global e localiza o primeiro livro cadastrado com o ID
+                # informado.
+                if id_global >= id_livro:
+                    for livro in lista_livro:
+                        if livro['id'] == id_livro:
+                            print(f"** ID: {livro['id']}")
+                            print(f"Nome: {livro['nome']}")
+                            print(f"Autor: {livro['autor']}")
+                            print(f"Editora: {livro['editora']}")
+                            livro_encontrado = True
+
+                    if not livro_encontrado:
                         print('Este livro não está mais disponível!')
                 else:
                     print('Não há um livro cadastrado com este ID')
 
+            # Terceira opção da consulta de livros, localiza o livro pelo nome do autor, o nome não pode ter partes
+            # ocultas, mas não é capsensive. A função cria uma nova lista para exibir por meio de uma laço futuro, todos
+            # os livros encontrados.
             elif opcao_consulta == 3:
                 autor_livro = input('Digite o nome do autor: ')
                 livros_encontrados = False
@@ -79,6 +89,8 @@ def consultar_livro():
                 if not livros_encontrados:
                     print(f'Nenhum livro encontrado para o autor: "{autor_livro}"')
 
+            # Quarta opção da consulta de livros, como o laço é quebrado ao final do loop, foi utilizado apenas um pass
+            # para passar a vez.
             elif opcao_consulta == 4:
                 pass
 
@@ -89,24 +101,24 @@ def consultar_livro():
         print('Você ainda não cadastrou nenhum livro!')
 
 
+# Função para remover um livro da lista_livros através do ID
 def remover_livro():
     try:
         id_livro = int(input('Digite o ID do livro que deseja remover: '))
         livro_encontrado = False
-        if len(lista_livro) >= id_livro:
 
+        # Verifica se o id_global é maior que o ID informado. Se for, prosegue para a busca por meio de um laço. Também
+        # utiliza o livro_encontrado, mas para definir melhor qual mensagem será impressa ao final da execução.
+        if id_global >= id_livro:
             for livro in lista_livro:
                 if livro['id'] == id_livro:
                     print(f'Livro {livro["nome"]} deletado com sucesso!')
-                    lista_livro.remove(livro)
+                    del lista_livro[id_livro - 1]
+
                     livro_encontrado = True
 
             if not livro_encontrado:
                 print('Não foi possível localizar o livro pelo ID informado.')
-
-            # livro = lista_livro[id_livro - 1]
-            # lista_livro.remove(livro)
-
         else:
             print("Não há um livro cadastrado com este ID")
 
@@ -116,6 +128,7 @@ def remover_livro():
         print('O ID informado deve ser numérico!')
 
 
+# Segmento principal do sistema: o menu principal.
 print('Bem vindo ao Controle de Livros do Thales Gabriel Moreira de Oliveira')
 while True:
     try:
@@ -127,6 +140,7 @@ while True:
                           '\n3 - Remover Livro'
                           '\n4 - Sair\n>> '))
 
+        # Caso a primeira opção seja seleciona, o id_global é implementado, e depois, passado para a função de cadastro.
         if opcao == 1:
             id_global += 1
             cadastrar_livro(id_global)
