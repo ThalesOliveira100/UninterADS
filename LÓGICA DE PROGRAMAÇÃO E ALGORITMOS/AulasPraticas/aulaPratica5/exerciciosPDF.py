@@ -46,6 +46,11 @@ def valida_inteiro(numero):
 
 
 def calcula_fatorial(numero):
+    """
+    Calcula o fatorial de um número recebido inteiro maior que -1 recebido.
+    :param numero: número informado pelo usuário
+    :return: fatorial calculado, se :param numero: == 0, retorna 1
+    """
     valor = valida_inteiro(numero)
     fatorial = 1
     if valor == -1:
