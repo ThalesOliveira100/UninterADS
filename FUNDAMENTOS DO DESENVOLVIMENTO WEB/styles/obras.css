@@ -1,0 +1,27 @@
+.card {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.img {
+    border: 1px solid #ccc;
+    border-radius: 1rem;
+    padding: 0.8rem;
+    margin-bottom: 0.8rem;
+}
+
+.img img {
+    width: 125px;
+    height: 115px;
+}
+
+@media all and (min-width: 35rem) {
+    body {
+        margin: 0 auto;
+    }
+
+    .img {
+        max-width: 28rem;
+        margin: 1rem;
+    }
+}

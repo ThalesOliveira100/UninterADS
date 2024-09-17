@@ -1,0 +1,112 @@
+@startuml
+left to right direction
+
+class PessoaExterna {
+    - foto: Imagem
+    - dataEHora: Datatime
+    + realizarEntrada()
+}
+
+class Funcionario {
+    - CNPJ: String
+    - cargo: String
+    + executarComandoDeVoz()
+}
+
+class FuncionarioPrivilegiado {
+    - CNPJ: String
+    - cargo: String
+    + executarComandoDeVoz()
+    + cadastrarVoz()
+    + cadastrarFace()
+}
+
+class IA {
+    - modeloFace: String
+    - dadosCapturados: String
+    + validarFace()
+    + capturarFace()
+    + preencherDados()
+}
+
+class CEO {
+    - nome: String
+    - email: String
+    + receberMensagemPorWhatsApp()
+}
+
+class ValidadorDeFace {
+    - confianca: double
+    + validarFace(face: Face): boolean
+}
+
+class CapturadorDeFace {
+    - camera: Camera
+    + capturarFace(): Imagem
+}
+
+class AcessoSetorComum {
+    - setor: String
+    + acessarSetorComum(): boolean
+}
+
+class ControleDeIluminacao {
+    - estado: boolean
+    + acenderLuzes(): boolean
+    + apagarLuzes(): boolean
+}
+
+class ControleDeArCondicionado {
+    - temperatura: double
+    - estado: boolean
+    + acionarArCondicionado(): boolean
+    + desativarArCondicionado(): boolean
+}
+
+class AcessoSetorRestrito {
+    - nivelAcesso: int
+    + acessarSetorRestrito(): boolean
+}
+
+class CadastroDeVoz {
+    - amostraVoz: Audio
+    + cadastrarVozDeFuncionario(voz: Voz): boolean
+}
+
+class CadastroDeFace {
+    - imagemFace: Imagem
+    + cadastrarFaceNoBancoDeDados(face: Face): boolean
+}
+
+class MensagemParaCEO {
+    - conteudo: String
+    - foto: Imagem
+    + enviarMensagemComFotoParaCEO(mensagem: Mensagem, foto: Foto): boolean
+}
+
+PessoaExterna "1..*" -- "1" CapturadorDeFace
+CapturadorDeFace "1" -- "1" ValidadorDeFace
+ValidadorDeFace "1" -- "1..*" MensagemParaCEO
+IA "1" -- "1" ValidadorDeFace
+IA "1" -- "1..*" MensagemParaCEO
+IA "1" -- "1..*" CadastroDeFace
+Funcionario "1" -- "1..*" AcessoSetorComum
+Funcionario "1" -- "1..*" ControleDeIluminacao
+Funcionario "1" -- "1..*" ControleDeArCondicionado
+FuncionarioPrivilegiado "1" -- "1..*" AcessoSetorRestrito
+FuncionarioPrivilegiado "1" -- "1..*" CadastroDeVoz
+FuncionarioPrivilegiado "1" -- "1..*" CadastroDeFace
+MensagemParaCEO "1..*" -- "1" CEO
+
+note right of PessoaExterna
+<<extend>>
+PessoaExterna <<extend>> CapturadorDeFace
+end note
+
+note right of CapturadorDeFace
+<<include>>
+CapturadorDeFace <<include>> ValidadorDeFace
+end note
+
+
+@enduml

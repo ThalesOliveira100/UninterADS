@@ -1,0 +1,49 @@
+@startuml
+left to right direction
+
+actor "Funcionário" as Funcionario
+actor "CEO, Gerente e RH" as PessoaComPrivilegio
+actor "Pessoa Externa" as PessoaExterna
+actor "CEO" as CEO
+actor "IA" as IA
+
+rectangle "PROJETO WIVOICE - RU: 4675362" {
+    usecase "Acessar setor comum" as UC0
+    usecase "Acessar setor restrito" as UC1
+    usecase "Acender luzes" as UC2
+    usecase "Apagar luzes" as UC3
+    usecase "Capturar face" as UC4
+    usecase "Enviar mensagem com foto para CEO" as UC6
+    usecase "Cadastrar voz de funcionário" as UC7
+    usecase "Acionar ar condicionado" as UC8
+    usecase "Desativar ar condicionado" as UC9
+    usecase "Cadastrar face no banco de dados" as UC10
+    usecase "Validar face" as UC11
+}
+
+together {
+    PessoaComPrivilegio --> Funcionario
+    Funcionario -- UC0: "Comando de voz"
+    Funcionario -- UC2: "Comando de voz"
+    Funcionario -- UC3: "Comando de voz"
+    Funcionario -- UC8: "Comando de voz"
+    Funcionario -- UC9: "Comando de voz"
+    PessoaComPrivilegio -- UC1: "Comando de voz"
+
+    Funcionario --> PessoaExterna
+
+    PessoaExterna -- UC4: "Tentativa de entrada"
+    UC4 -- UC11: "Sistema valida face"
+    UC11 -- UC6: "Face não reconhecida"
+
+    PessoaComPrivilegio -- UC7: "Funcionário sem voz cadastrada"
+    PessoaComPrivilegio -- UC10: "Funcionário ou Cliente sem face cadastrada"
+    CEO -right- UC6: "Recebe mensagem no WhatsApp"
+    IA -up- UC11
+    IA -- UC6: "Preenche os dados"
+    IA -- UC10: "Captura eficaz de face"
+
+
+
+}
+@enduml
